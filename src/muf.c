@@ -31,6 +31,7 @@
 #include "qrb.h"
 #include "tlf_panel.h"
 #include "ui_utils.h"
+#include "main.h"
 
 
 // message splitters:
@@ -363,7 +364,7 @@ void muf(void) {
 		  6367.0 / (h + 6367.0)) / sin(0.5 * lm / RADIAN)) * RADIAN;
     }
 
-    WINDOW *win = newwin(LINES, 80, 0, 0);
+    WINDOW *win = newwin(LINES, xmax, 0, 0);
     PANEL *pan = new_panel(win);
 
     wclear(win);

@@ -38,9 +38,10 @@
 #include "scroll_log.h"
 #include "tlf_curses.h"
 #include "ui_utils.h"
+#include "main.h"
 
 #define NR_LINES 5
-#define NR_COLS 80
+#define NR_COLS 1000
 
 typedef struct {
     int start;
@@ -82,7 +83,7 @@ static void highlight_line(int row, char *line, int column) {
 
     char ln[NR_COLS + 1];
 
-    g_strlcpy(ln, line, NR_COLS + 1);
+    g_strlcpy(ln, line, xmax + 1);
     attron(COLOR_PAIR(C_HEADER) | A_STANDOUT);
     mvaddstr(7 + row, 0, ln);
     move(7 + row, column);
@@ -94,7 +95,7 @@ static void unhighlight_line(int row, char *line) {
 
     char ln[NR_COLS + 1];
 
-    g_strlcpy(ln, line, NR_COLS + 1);
+    g_strlcpy(ln, line, xmax + 1);
     attron(COLOR_PAIR(C_LOG) | A_STANDOUT);
     mvaddstr(7 + row, 0, ln);
 }

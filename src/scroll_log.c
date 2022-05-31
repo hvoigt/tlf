@@ -35,6 +35,7 @@
 #include "ignore_unused.h"
 #include "qsonr_to_str.h"
 #include "tlf_curses.h"
+#include "main.h"
 
 /** find out highest used serial number and prepare next one in qsonum
  * and qsonumstr
@@ -98,16 +99,14 @@ void get_next_serial(void) {
     qsonr_to_str(qsonrstr, qsonum);
 }
 
-#define LINELEN 80
-
 /** read the last 5 log lines from qso_array and set the next qso number */
 void scroll_log(void) {
 
     for (int i = 5; i > 0; i--) {
 	if (nr_qsos < i) {
-	    g_strlcpy(logline_edit[5 - i], spaces(80), LINELEN + 1);
+	    g_strlcpy(logline_edit[5 - i], spaces(xmax), xmax + 1);
 	} else {
-	    g_strlcpy(logline_edit[5- i], QSOS(nr_qsos - i), LINELEN + 1);
+	    g_strlcpy(logline_edit[5- i], QSOS(nr_qsos - i), xmax + 1);
 	}
     }
 

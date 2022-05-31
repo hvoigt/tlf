@@ -32,6 +32,7 @@
 #include "tlf_panel.h"
 #include "startmsg.h"
 #include "splitscreen.h"
+#include "ui_utils.h"
 
 
 extern int ymax, xmax;
@@ -337,6 +338,7 @@ static int onechar(void) {
  */
 void resize_layout(void) {
     getmaxyx(stdscr, ymax, xmax);
+    backgrnd_str = spaces(xmax);
     clear_display();
     clusterinfo();
     refresh_splitlayout();

@@ -47,6 +47,7 @@
 #include "tlf.h"
 #include "tlf_curses.h"
 #include "ui_utils.h"
+#include "main.h"
 
 void clear_display(void);
 
@@ -147,7 +148,7 @@ void clear_display(void) {
 
     attron(COLOR_PAIR(C_HEADER));
     mvaddstr(6, 0, backgrnd_str);
-    mvprintw(6, (80 - strlen(whichcontest)) / 2 - 4, " == %s == ", whichcontest);
+    mvprintw(6, (xmax - strlen(whichcontest)) / 2 - 4, " == %s == ", whichcontest);
 
     showscore();
 

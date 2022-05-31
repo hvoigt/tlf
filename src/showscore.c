@@ -36,6 +36,7 @@
 #include "bands.h"
 #include "setcontest.h"
 #include "ui_utils.h"
+#include "main.h"
 
 #define START_COL 45	/* start display in these column */
 
@@ -65,7 +66,7 @@ void stewperry_show_summary(int points, float fixedmult);
 void stewperry_show_summary(int points, float fixedmult) {
     float mult;
 
-    mvaddstr(5, START_COL, spaces(80 - START_COL));
+    mvaddstr(5, START_COL, spaces(xmax - START_COL));
     /* TODO: respect field boundaries for large numbers */
     mult = (fixedmult == 0.0) ? 1.0 : fixedmult;
 
@@ -76,7 +77,7 @@ void stewperry_show_summary(int points, float fixedmult) {
 
 /* show summary line */
 void show_summary(int points, int multi) {
-    mvaddstr(5, START_COL, spaces(80 - START_COL));
+    mvaddstr(5, START_COL, spaces(xmax - START_COL));
     /* TODO: respect field boundaries for large numbers */
     mvprintw(5, START_COL, "Pts: %d  Mul: %d Score: %d",
 	     points, multi, points * multi);
@@ -112,9 +113,9 @@ void display_header(int *bi) {
 	printfield(2, band_cols[i], qsos_per_band[bi[i]]);
     }
 
-    mvaddstr(3, START_COL, spaces(80 - START_COL));
-    mvaddstr(4, START_COL, spaces(80 - START_COL));
-    mvaddstr(5, START_COL, spaces(80 - START_COL));
+    mvaddstr(3, START_COL, spaces(xmax - START_COL));
+    mvaddstr(4, START_COL, spaces(xmax - START_COL));
+    mvaddstr(5, START_COL, spaces(xmax - START_COL));
 
 }
 

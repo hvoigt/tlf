@@ -40,6 +40,7 @@
 #include "bands.h"
 #include "lancode.h"
 #include "grabspot.h"
+#include "main.h"
 
 #define TOLERANCE 100 		/* spots with a QRG +/-TOLERANCE
 				   will be counted as the same QRG */
@@ -54,7 +55,7 @@
 #define TOPLINE 14
 #define LASTLINE (LINES - 2)
 
-#define LINELENGTH 80
+#define LINELENGTH 120
 #define COLUMNS ((LINELENGTH - 14) / SPOT_COLUMN_WIDTH)
 #define NR_SPOTS ((LASTLINE - TOPLINE + 1) * COLUMNS)
 
@@ -785,7 +786,7 @@ void bandmap_show() {
 
     for (i = bm_y + 1; i < LASTLINE + 1; i++) {
 	move(i, 0);
-	for (j = 0; j < 80; j++)
+	for (j = 0; j < xmax; j++)
 	    addch(' ');
     }
 

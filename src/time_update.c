@@ -42,6 +42,7 @@
 #include "tlf_curses.h"
 #include "trx_memory.h"
 #include "ui_utils.h"
+#include "main.h"
 
 /** broadcast to LAN
  *
@@ -88,13 +89,13 @@ void show_freq(void) {
 	mvprintw(13, 67, FREQ_DISPLAY_FORMAT, "TRX", freq / 1000.0);
 	memfreq = memory_get_freq();
     } else {
-	mvaddstr(13, 67, spaces(80 - 67));
+	mvaddstr(13, 67, spaces(xmax - 67));
     }
 
     if (memfreq > 0) {
 	mvprintw(14, 67, FREQ_DISPLAY_FORMAT, "MEM", memfreq / 1000.0);
     } else {
-	mvaddstr(14, 67, spaces(80 - 67));
+	mvaddstr(14, 67, spaces(xmax - 67));
     }
 
 }

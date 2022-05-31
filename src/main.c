@@ -968,7 +968,9 @@ int main(int argc, char *argv[]) {
     int ret;
     char welcome[80];
 
-    backgrnd_str = spaces(80);
+    getmaxyx(stdscr, ymax, xmax);
+
+    backgrnd_str = spaces(xmax);
 
     sprintf(welcome, "        Welcome to %s by PA0R!!", argp_program_version);
 
