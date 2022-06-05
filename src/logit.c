@@ -150,7 +150,8 @@ void logit(void) {
 			recall_exchange();
 		    }
 
-		    if (trxmode == CWMODE || trxmode == DIGIMODE)
+                    // ?
+		    if ((trxmode == CWMODE || trxmode == DIGIMODE) && *comment != '\0')
 			sendspcall();
 		    else {
 			vk_play_file(ph_message[5]);

@@ -180,6 +180,7 @@ static int onechar(void) {
 	x = getch();
 
 	/* Escape pressed, not an escaped key. */
+        // TODO: move + handling for SP/RUN switching here
 	if (x == ERR) {
 	    stoptx();
 
